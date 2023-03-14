@@ -14,7 +14,17 @@
         <!-- container -->
         <div class="navigationBar CNTNR">
             <!-- left side of navigation bar, this will be our menu button that opens out menu -->
-            <div class="burgerIcon TXT">left</div>
+            <div class="burgerIcon TXT">
+            
+                <!--         sets (here-include-html to menu.html)         -->
+                <div here-include-html="menu.html"></div> 
+                
+                <!--         calls the include function to the include menu script  useing javaScript       -->
+                <script>
+                includeHTML();
+                </script>
+            
+            </div>
 
             <!-- our register button goes here THE MOST IMPORTANT FEATURE -->
             <div class="register TXT">right</div>
