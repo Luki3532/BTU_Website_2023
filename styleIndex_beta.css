@@ -39,3 +39,9 @@ body{
                 padding-right: 5%;
     /* PADDING END */
 }
+#menuIconPart{
+    width: 17.5px;
+    height: 2.5px;
+    background-color: #fdfdfd;
+    margin: 2.5px 0;
+}
