@@ -78,7 +78,7 @@ body {
     justify-content: space-between;
 }
 
-#deskTopLinks a {
+.deskTopLinks a {
     color: #fdfdfd;
     text-decoration: none;
     padding: 1rem;
@@ -86,7 +86,7 @@ body {
     width: max-content;
 }
 
-#deskTopLinks {
+.deskTopLinks {
     display: flex;
 }
 
