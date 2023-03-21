@@ -6,16 +6,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styleMenu.css">
-        <link rel="stylesheet" href="styleIndex_beta.css">
+        <link rel="stylesheet" href="styleIndex-1.1.css">
         <title>BTSU Website v1</title>
     </head>
 
     <body>
-        
+
         <!-- container -->
         <div class="navigationBar CNTNR">
+            <!-- START HAMBURGER MENU -->
             <!-- left side of navigation bar, this will be our menu button that opens out menu -->
-            <div class="burgerIcon TXT">
+            <div class="burgerIcon CNTNR">
                 <!-- The overlay -->
                 <div id="myNav" class="overlay">
 
@@ -25,19 +26,20 @@
 
                     <!-- Overlay content -->
                     <div class="overlay-content">
-                        <a href="index.html">Home</a>
-                        <a href="#">Find Sessions</a>
-                        <a href="#">RHS Map</a>
-                        <a href="about_students.html">Student Creators</a>
+                        <a href="index.html" class="TXT">Home</a>
+                        <a href="#" class="TXT">Find Sessions</a>
+                        <a href="#" class="TXT">RHS Map</a>
+                        <a href="about_students.html" class="TXT">Student
+                            Creators</a>
                     </div>
 
                 </div>
 
                 <!-- Use any element to open/show the overlay navigation menu -->
                 <span onclick="openNav()">
-                <div id="menuIconPart"></div>
-                <div id="menuIconPart"></div>
-                <div id="menuIconPart"></div>
+                    <div id="menuIconPart"></div>
+                    <div id="menuIconPart"></div>
+                    <div id="menuIconPart"></div>
                 </span>
 
                 <script>
@@ -50,11 +52,19 @@
                         }
                         </script>
             </div>
+            <!-- END HAMBURGER MENU -->
 
+            <!-- when the scren size is MOBILE then we want to remove the links and add the Hamburger Menu -->
+            <div id="deskTopLinks">
+                <a href="index.html" class="TXT">Home</a>
+                <a href="#" class="TXT">Find Sessions</a>
+                <a href="#" class="TXT">RHS Map</a>
+                <a href="about_students.html" class="TXT">Student Creators</a>
+            </div>
             <!-- our register button goes here THE MOST IMPORTANT FEATURE -->
             <!-- container for item Flex Justify-content right -->
             <div class="right CNTNR">
-                <div class="register TXT ">RIGHT</div>
+                <div class="register TXT ">Welcome</div>
             </div>
         </div>
         <!-- end of container -->
@@ -76,10 +86,10 @@
         <!-- NAME section starts -->
         <div class="section CNTNR">
             <!-- the title of the section -->
-            <div class="sectionTitle">SECTION_title</div>
+            <div class="sectionTitle TXT">SECTION_title</div>
 
             <!-- section details -->
-            <div class="sectionDetails">SECTION_details</div>
+            <div class="sectionDetails TXT">SECTION_details</div>
         </div>
         <!-- end of section NAME -->
 
