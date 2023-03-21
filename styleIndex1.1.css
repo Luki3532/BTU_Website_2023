@@ -1,9 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     /* BACKGROUND_COLOR */
     background-color: #fdfdfd;
     /* SPACE BETWEEN THE OBJECT AND THE OTHER OBJECT (in this case the sides of our screen or web browser display) */
-    margin: 0%;
-
+    margin: 0;
+    padding: 0;
     /* flex wrap */
     flex-wrap: wrap;
 }
@@ -15,14 +19,8 @@ body {
     background-color: #141b4d;
     /* PADDING START */
     /* DISTANCE CONTENT IS FROM BOARDER */
-    /* top & bottom */
-    padding: 2.5%;
+    padding: 2%;
 
-    /* left */
-    padding-left: 5%;
-
-    /* right */
-    padding-right: 5%;
     /* PADDING END */
 
     /* FLEX BOX */
@@ -30,6 +28,7 @@ body {
     display: flex;
     /* where content should be placed * amount of space */
     justify-content: space-between;
+    align-items: center;
     /* FLEX BOX END */
 
 }
@@ -51,15 +50,54 @@ body {
     /* oppacity */
     opacity: .95;
 }
-#menuIconPart{
+
+#menuIconPart {
     width: 17.5px;
     height: 2.5px;
     background-color: #fdfdfd;
     margin: 2.5px 0;
 }
-.header .TXT, 
-.section .TXT{
+
+.header .TXT,
+.section .TXT {
     display: flex;
     justify-content: center;
 
+}
+
+.title {
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.burgerIcon {
+    /* position: absolute; */
+    display: none;
+    justify-content: space-between;
+}
+
+#deskTopLinks a {
+    color: #fdfdfd;
+    text-decoration: none;
+    padding: 1rem;
+    display: block;
+    width: max-content;
+}
+
+#deskTopLinks {
+    display: flex;
+}
+
+@media(max-width: 500px) {
+    .burgerIcon {
+        display: flex;
+    }
+
+    #deskTopLinks {
+        display: none;
+    }
+}
+
+.right {
+    padding-right: 1rem;
 }
