@@ -78,7 +78,7 @@ body {
     justify-content: space-between;
 }
 
-.deskTopLinks a {
+#deskTopLinks a {
     color: #fdfdfd;
     text-decoration: none;
     padding: 1rem;
@@ -86,19 +86,19 @@ body {
     width: max-content;
 }
 
-.deskTopLinks {
+#deskTopLinks {
     display: flex;
 }
 
 @media(max-width: 600px) {
-        .burgerIcon {
-            display: flex;
-            padding-left: 1rem;
-        }
+    .burgerIcon {
+        display: flex;
+        padding-left: 1rem;
+    }
 
-        .deskTopLinks {
-            display: none;
-        }
+    #deskTopLinks {
+        display: none;
+    }
 }
 
 .right {
