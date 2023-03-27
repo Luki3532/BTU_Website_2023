@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dynamic Session Creation Basis</title>
+    </head>
+    <body>
+        <!-- UI HERE -->
+        <input type="file" id="uploadFile" accept=".csv">
+        <button id="uploadConfirm">Upload File</button>
+    
+        <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.0/papaparse.min.js">
+        </script>
+    
+         <script>
+            const uploadConfirm = document.getElementById("uploadFile")
+            addEventListener("click", () =>{
+                Papa.parse(document.getElementById("uploadFile").files[0],
+                    {
+                    download: true,
+                    header: true,
+                    skipEmptyLines: true,
+                    complete: function(results){
+                        console.log(results);
+                    }
+                });
+            });
+            </script>
+
+        <!-- PAGE BODY HERE -->
+        <div class="header">
+            <div class="date">@DATE</div>
+            <div id="sessionName">@SESSION_NAME</div>
+        </div>
+        <div class="details">
+            <div class="section">
+                <div class="teacher">
+                    <div id="teacherFirstName">@teacherFirstName</div>
+                    <div id="teacherLastName">@teacherLastName</div>
+                </div>
+            </div>
+            <div class="section CNTNR">
+                <div class="roomID CNTNR">
+                    <div id="roomNumber" class="TXT">@ROOM_#</div>
+                </div>
+            </div>
+            <div class="section CNTNR">
+                <div class="time CNTNR">
+                    <div id="time_start" class="TXT">@START_TIME</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Text with this script -->
+        <script>
+            document.getElementById("teacherFirstName").innerHTML = "Hello I am Not the original Text";
+        </script>
+
+    </body>
+</html>
