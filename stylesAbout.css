@@ -13,7 +13,7 @@ body{
 .placeholder-image{
     display: flex;
     margin: 10px;
-    
+    flex-direction: row;
 }
 
 
