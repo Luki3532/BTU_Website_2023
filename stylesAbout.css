@@ -1,0 +1,34 @@
+body{
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.about_lucas{
+    display: flex;
+    margin: 20px;
+}
+
+.placeholder-image{
+    display: flex;
+    margin: 10px;
+    flex-direction: row;
+}
+
+
+.about_abby{
+    display: flex;
+    margin: 20px;
+}
+
+
+.about_tiffany{
+    display: flex;
+    margin: 20px;
+}
+
+.about_mshaubold{
+    display: flex;
+    margin: 20px;
+}
