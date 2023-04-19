@@ -51,6 +51,7 @@ body {
 
     /* oppacity */
     opacity: .95;
+    align-items: center;
 }
 
 #menuIconPart {
@@ -61,10 +62,10 @@ body {
 }
 
 .header .TXT,
-.section .TXT {
+.section .TXT,
+{
     display: flex;
     justify-content: center;
-
 }
 
 .title {
@@ -103,4 +104,20 @@ body {
 
 .right {
     padding: .5rem 1rem;
+}
+.floor-img{
+    width: 50%;
+    display: flex;
+}
+.photo-grid-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.photo-grid-item{
+    display: flex;
+    border-style: dotted;
+    justify-content: center;
+
 }
