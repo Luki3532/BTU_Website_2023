@@ -16,13 +16,24 @@ body{
     flex-direction: row;
 }
 
-
+.lucas_container{
+    display: flex;
+    flex-direction: row;
+}
 .about_abby{
     display: flex;
     margin: 20px;
 }
 
+.abby_container{
+    display: flex;
+    flex-direction: row;
+}
 
+.tiffany_container{
+    display: flex;
+    flex-direction: row;
+}
 .about_tiffany{
     display: flex;
     margin: 20px;
@@ -31,4 +42,9 @@ body{
 .about_mshaubold{
     display: flex;
     margin: 20px;
+}
+
+.mshaubold_container{
+    display: flex;
+    flex-direction: row;
 }
