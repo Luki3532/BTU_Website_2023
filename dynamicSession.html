@@ -9,24 +9,36 @@
     <body>
         <!-- UI HERE -->
         <input type="file" id="uploadFile" accept=".csv">
-        <button id="uploadConfirm">Upload File</button>
+        <button id="parse" onclick="parse()">Parse CSV</button>
+        <button id="addDivs" onclick="addDivs()"> Add</button>
     
         <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.0/papaparse.min.js">
         </script>
     
          <script>
-            const uploadConfirm = document.getElementById("uploadFile")
-            addEventListener("click", () =>{
-                Papa.parse(document.getElementById("uploadFile").files[0],
+            function parse(){
+            Papa.parse("MOCK_DATA.csv",
                     {
                     download: true,
                     header: true,
                     skipEmptyLines: true,
                     complete: function(results){
                         console.log(results);
+                        addDivs(results);
                     }
+                    
                 });
-            });
+                
+            }
+
+            function addDivs(arrayResults){
+            var iDiv = document.createElement('div');
+            iDiv.id = 'block';
+            iDiv.className = 'block';
+            document.body.appendChild(iDiv);
+
+            iDiv.innerHTML = arrayResults[0];
+            }
             </script>
 
         <!-- PAGE BODY HERE -->
