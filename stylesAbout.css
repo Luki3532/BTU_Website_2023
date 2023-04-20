@@ -16,13 +16,20 @@ body{
     flex-direction: row;
 }
 
-.tiffany_image{
+.photo{
     display: flex;
     margin: 10px;
-    width: 100px;
+    width: 100%;
     height: auto;
     flex-direction: row;
     flex-wrap: wrap;
+    /* max-width: 100;
+    flex-flow: row nowrap;
+    align-items: center; */
+}
+
+img { 
+    width: 100%
 }
 
 .lucas_container{
