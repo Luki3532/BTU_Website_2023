@@ -97,7 +97,7 @@ body {
         padding-left: 1rem;
     }
 
-    #deskTopLinks {
+    .deskTopLinks {
         display: none;
     }
 }
