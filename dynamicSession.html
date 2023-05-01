@@ -8,14 +8,13 @@
     </head>
     <body>
         <!-- UI HERE -->
-        <input type="file" id="uploadFile" accept=".csv">
         <button id="parse" onclick="parse()">Parse CSV</button>
         <script
             src="https://cdn.jsdelivr.net/npm/papaparse@5.4.0/papaparse.min.js">
         </script>
         <script>
             function parse(){
-                Papa.parse("MOCK_DATA.csv",
+                Papa.parse("MOCK_DATA1.0.csv",
                         {
                         download: true,
                         header: true,
@@ -27,68 +26,24 @@
                             iDiv.className = 'block';
                             document.body.appendChild(iDiv);
                             // results.data[0][0] = "I am results[0]";
-                            // iDiv.innerHTML = results.data[0];
+                            // iDiv.innerHTML = results.data[0].id[0];
                             console.log("results.length: "+results.data.length);
+                            for (let index = 0; index < results.data.length; index++) {
+                                const element = results.data[index].id;
+                                var div = document.createElement('div');
+                                div.id = 'container';
+                                div.innerHTML = element;
+                                div.className = 'border pad';
                             
-                            console.log("Running json to js(results to obj) ")
-                            var obj = JSON.parse(results.data[0]);
-                            for (var x in obj){
-                                console.log(x);
-                                
+                                document.body.appendChild(div);
+
+                                console.log("index: "+index + "; results.data[index].id[0]: " + results.data[index].id[0]);
                             }
-                        }
-                        
+                         
+                        }     
                     });
-
-          
-
-            // let data = $.get("MOCK_DATA.csv");
-            //     let array = data.split("\\n").map(function (line) {
-            //     return line.split(",");
-            //     });
-            // console.log("printing array" + array);
-            // console.log("parse function finished");
-
             }
-
-         
-                // console.log("Printing Array with for loops");
-                // for(var i = 0; i < arrayResults[i].length; i++) {
-                //     for(var z = 0; z < a.length; z++) {
-                //         console.log(arrayResults[z][i]);
-                //     }
-                // }
-            
-                
-
             </script>
-        <!-- PAGE BODY HERE -->
-        <div class="header">
-            <div class="date">@DATE</div>
-            <div id="sessionName">@SESSION_NAME</div>
-        </div>
-        <div class="details">
-            <div class="section">
-                <div class="teacher">
-                    <div id="teacherFirstName">@teacherFirstName</div>
-                    <div id="teacherLastName">@teacherLastName</div>
-                </div>
-            </div>
-            <div class="section CNTNR">
-                <div class="roomID CNTNR">
-                    <div id="roomNumber" class="TXT">@ROOM_#</div>
-                </div>
-            </div>
-            <div class="section CNTNR">
-                <div class="time CNTNR">
-                    <div id="time_start" class="TXT">@START_TIME</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Change Text with this script -->
-        <script>
-            document.getElementById("teacherFirstName").innerHTML = "Hello I am Not the original Text";
-        </script>
+       
     </body>
 </html>
