@@ -87,7 +87,7 @@ body {
     width: max-content;
 }
 
-#deskTopLinks {
+.deskTopLinks {
     display: flex;
 }
 
