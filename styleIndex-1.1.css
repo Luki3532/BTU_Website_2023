@@ -80,10 +80,10 @@ body {
 }
 
 .deskTopLinks a {
+    display: flex;
     color: #fdfdfd;
     text-decoration: none;
     padding: 1rem;
-    display: block;
     width: max-content;
 }
 
