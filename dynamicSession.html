@@ -31,13 +31,15 @@
                             for (let index = 0; index < results.data.length; index++) {
                                 const element = results.data[index].id;
                                 var div = document.createElement('div');
-                                div.id = 'container';
-                                div.innerHTML = element;
+                                div.id = 'container'+index;
+                                // div.innerHTML = element;
                                 div.className = 'border pad';
-                            
+                                div.style.display = "flex-collumn";
+;
                                 document.body.appendChild(div);
+                                document.getElementById(div.id).innerText = "ID: "+element+" I am Inside the div";
 
-                                console.log("index: "+index + "; results.data[index].id[0]: " + results.data[index].id[0]);
+                                console.log("index: "+index + "; results.data[index].id[0]: " + results.data[index].id+"- div.id: "+ div.id);
                             }
                          
                         }     
