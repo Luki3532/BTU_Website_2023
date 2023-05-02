@@ -1,51 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleSessions.css">
+        <link rel="stylesheet" href="styleIndex-1.1.css">
+        <link rel="stylesheet" href="styleMenu-1.0.css">
         <title>Dynamic Session Creation Basis</title>
     </head>
+
     <body>
+
+
+        <!-- container -->
+        <div class="navigationBar CNTNR">
+            <!-- START HAMBURGER MENU -->
+            <!-- left side of navigation bar, this will be our menu button that opens out menu -->
+            <div class="burgerIcon CNTNR">
+                <!-- The overlay -->
+                <div id="myNav" class="overlay">
+
+                    <!-- Button to close the overlay navigation -->
+                    <a href="javascript:void(0)" class="closebtn"
+                        onclick="closeNav()">&times;</a>
+
+                    <!-- Overlay content -->
+                    <div class="overlay-content">
+                        <a href="index.html" class="TXT">Home</a>
+                        <a href="dynamicSession.html" class="TXT">Find Sessions</a>
+                        <a href="#" class="TXT">RHS Map</a>
+                        <a href="about_students.html" class="TXT">Student
+                            Creators</a>
+                    </div>
+
+                </div>
+
+                <!-- Use any element to open/show the overlay navigation menu -->
+                <span onclick="openNav()">
+                    <div id="menuIconPart"></div>
+                    <div id="menuIconPart"></div>
+                    <div id="menuIconPart"></div>
+                </span>
+
+                <script>
+                function openNav() {
+                    document.getElementById("myNav").style.width = "100%";
+                }
+
+                function closeNav() {
+                    document.getElementById("myNav").style.width = "0%";
+                }
+            </script>
+            </div>
+            <!-- END HAMBURGER MENU -->
+
+            <!-- when the scren size is MOBILE then we want to remove the links and add the Hamburger Menu -->
+            <div class="deskTopLinks">
+                <a href="index.html" class="TXT">Home</a>
+                <a href="dynamicSession.html" class="TXT">Find Sessions</a>
+                <a href="#" class="TXT">RHS Map</a>
+                <a href="about_students.html" class="TXT">Student Creators</a>
+            </div>
+            <!-- our register button goes here THE MOST IMPORTANT FEATURE -->
+            <!-- container for item Flex Justify-content right -->
+            <div class="right CNTNR">
+                <div class="register TXT ">Welcome</div>
+            </div>
+        </div>
+
+
         <!-- UI HERE -->
-        <button id="parse" onclick="parse()">Parse CSV</button>
         <script
             src="https://cdn.jsdelivr.net/npm/papaparse@5.4.0/papaparse.min.js">
-        </script>
+    </script>
         <script>
-            function parse(){
-                Papa.parse("MOCK_DATA1.0.csv",
-                        {
-                        download: true,
-                        header: true,
-                        skipEmptyLines: true,
-                        complete: function(results){
-                            console.log(results);
-                            var iDiv = document.createElement('div');
-                            iDiv.id = 'block';
-                            iDiv.className = 'block';
-                            document.body.appendChild(iDiv);
-                            // results.data[0][0] = "I am results[0]";
-                            // iDiv.innerHTML = results.data[0].id[0];
-                            console.log("results.length: "+results.data.length);
-                            for (let index = 0; index < results.data.length; index++) {
-                                const element = results.data[index].id;
-                                var div = document.createElement('div');
-                                div.id = 'container'+index;
-                                // div.innerHTML = element;
-                                div.className = 'border pad';
-                                div.style.display = "flex-collumn";
-;
-                                document.body.appendChild(div);
-                                document.getElementById(div.id).innerText = "ID: "+element+" I am Inside the div";
 
-                                console.log("index: "+index + "; results.data[index].id[0]: " + results.data[index].id+"- div.id: "+ div.id);
-                            }
-                         
-                        }     
-                    });
-            }
-            </script>
-       
+        // THIS IS WHERE THE CSV FILE GOES!
+        // const iAmtheFileToBeParsed = "MOCK_DATA1.0.csv";
+
+        Papa.parse("MOCK_DATA1.0.csv",
+            {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: function (results) {
+                    console.log("results.length: " + results.data.length);
+                    for (let index = 0; index < results.data.length; index++) {
+                        const element = results.data[index].id;
+                        var sectionContainer = document.createElement('div');
+                        sectionContainer.id = ('container' + index);
+                        // div.innerHTML = element;
+                        sectionContainer.className = 'container';
+
+                        var titleTxt = document.createElement("div");
+                        titleTxt.id = "titleTxtDiv" + index;
+                        titleTxt.className ="title";
+                        titleTxt.innerHTML = ("Session Name: "+ results.data[index].sessionName);
+
+                        var roomNumber = document.createElement("div");
+                        roomNumber.id = "sectionTxtDiv" + index;
+                        roomNumber.className ="details";
+                        roomNumber.innerHTML = ("Room Number: " + results.data[index].roomNumber);
+
+                        var date = document.createElement("div");
+                        date.id = "titleTxtDiv" + index;
+                        date.className ="details";
+                        date.innerHTML = ("Date Here");
+
+
+
+                        sectionContainer.appendChild(titleTxt);
+                        sectionContainer.appendChild(roomNumber);
+                        sectionContainer.appendChild(date);
+
+
+                        document.body.appendChild(sectionContainer);
+
+                        console.log("index: " + index + "; results.data[index].id[0]: " + results.data[index].id + "- sectionContainer.id: " + sectionContainer.id + "sectionContainer ID: " + sectionContainer.id);
+
+                    }
+
+                }
+            });
+    </script>
     </body>
+
 </html>
