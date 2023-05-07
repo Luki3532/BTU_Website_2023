@@ -1,7 +1,9 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');* {
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
     box-sizing: border-box;
-    font-family:'Lato','Serif','Times New Roman', Times, serif;
+    font-family: 'Lato', 'Serif', 'Times New Roman', Times, serif;
     font-weight: 500;
 }
 
@@ -62,15 +64,18 @@ body {
 }
 
 .header .TXT,
-.section .TXT,
-{
-    display: flex;
-    justify-content: center;
+.section .TXT{
+display: flex;
+justify-content: center;
 }
 
 .title {
     font-size: 1.5rem;
     margin: .5rem;
+
+}
+.details{
+    font-size: small;
 }
 
 .burgerIcon {
@@ -105,19 +110,22 @@ body {
 .right {
     padding: .5rem 1rem;
 }
-.floor-img{
+
+.floor-img {
     width: 50%;
     display: flex;
 }
-.photo-grid-container{
+
+.photo-grid-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
 }
-.photo-grid-item{
+
+.photo-grid-item {
     display: flex;
     border-style: dotted;
     justify-content: center;
-
+    
 }
