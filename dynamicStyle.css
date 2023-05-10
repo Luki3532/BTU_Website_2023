@@ -1,0 +1,88 @@
+html{
+    scroll-behavior: smooth;
+}
+.to-top {
+    background: white;
+    position: fixed;
+    bottom: 16px;
+    right:32px;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:32px;
+    color:#1f1f1f;
+    text-decoration: none;
+    opacity:0;
+    pointer-events: none;
+    transition: all .4s;
+  }
+  
+  .to-top.active {
+    bottom: 6.5%;
+    pointer-events: auto;
+    opacity:.8;
+    background-color: #cfcfcf
+  }
+  .fas{
+    color: #1f1f1f;
+  }
+  
+body{
+    background-color: #fdfdfd;
+}
+
+.container{
+    margin: 10%;
+}
+.container div{
+    padding: 2%;
+}
+.dayButtons{
+  background: white;
+  /* position: fixed;
+  width:50px;
+  height:50px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#1f1f1f;
+  padding-top: 9%;
+}
+.button{
+  font-size: 4vw;
+  position: relative;
+  padding: 1% 8%;
+  margin: 0% 5%;
+  border-color: #fed141;
+  color: #141b4d;
+  background-color: fdfdfd;
+  /* Hover */
+  transition-duration: 0.4s;
+  border-width: 1%;
+  font-weight: bolder;
+  border-width: .5vw;
+
+  
+}
+.button:hover {
+  background-color: #fed141; /* Green */
+  border-color: #c5c7d4;
+  color:  #a6192e;
+  border-width: .6vw .5vw;
+}
+@media(min-width: 600px) {
+  .button{
+    font-size: 1pc;
+  }
+  .dayButtons{
+    padding-top: 4%;
+
+  }
+}
+
+.header{
+  margin-top: 4%;
+}

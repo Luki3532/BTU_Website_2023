@@ -1,74 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styleIndex-1.1.css">
+        <link rel="stylesheet" href="styleMenu-1.0.css">
+        <link rel="stylesheet" href="dynamicStyle.css">
+        <script src="https://kit.fontawesome.com/af28f1c91c.js"
+            crossorigin="anonymous"></script>
         <title>Dynamic Session Creation Basis</title>
     </head>
+
     <body>
-        <!-- UI HERE -->
-        <input type="file" id="uploadFile" accept=".csv">
-        <button id="parse" onclick="parse()">Parse CSV</button>
-        <button id="addDivs" onclick="addDivs()"> Add</button>
-    
-        <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.0/papaparse.min.js">
-        </script>
-    
-         <script>
-            function parse(){
-            Papa.parse("MOCK_DATA.csv",
-                    {
-                    download: true,
-                    header: true,
-                    skipEmptyLines: true,
-                    complete: function(results){
-                        console.log(results);
-                        addDivs(results);
-                    }
-                    
-                });
-                
-            }
 
-            function addDivs(arrayResults){
-            var iDiv = document.createElement('div');
-            iDiv.id = 'block';
-            iDiv.className = 'block';
-            document.body.appendChild(iDiv);
 
-            iDiv.innerHTML = arrayResults[0];
-            }
+        <!-- container -->
+        <div class="navigationBar CNTNR">
+            <!-- START HAMBURGER MENU -->
+            <!-- left side of navigation bar, this will be our menu button that opens out menu -->
+            <div class="burgerIcon CNTNR">
+                <!-- The overlay -->
+                <div id="myNav" class="overlay">
+
+                    <!-- Button to close the overlay navigation -->
+                    <a href="javascript:void(0)" class="closebtn"
+                        onclick="closeNav()">&times;</a>
+
+                    <!-- Overlay content -->
+                    <div class="overlay-content">
+                        <a href="index.html" class="TXT">Home</a>
+                        <a href="dynamicSession.html" class="TXT">Find Sessions</a>
+                        <a href="map_2.html" class="TXT">RHS Map</a>
+                        <a href="about_students.html" class="TXT">Student
+                            Creators</a>
+                    </div>
+
+                </div>
+
+                <!-- Use any element to open/show the overlay navigation menu -->
+                <span onclick="openNav()">
+                    <div id="menuIconPart"></div>
+                    <div id="menuIconPart"></div>
+                    <div id="menuIconPart"></div>
+                </span>
+
+                <script>
+                function openNav() {
+                    document.getElementById("myNav").style.width = "100%";
+                }
+
+                function closeNav() {
+                    document.getElementById("myNav").style.width = "0%";
+                }
             </script>
+            </div>
+            <!-- END HAMBURGER MENU -->
 
-        <!-- PAGE BODY HERE -->
-        <div class="header">
-            <div class="date">@DATE</div>
-            <div id="sessionName">@SESSION_NAME</div>
-        </div>
-        <div class="details">
-            <div class="section">
-                <div class="teacher">
-                    <div id="teacherFirstName">@teacherFirstName</div>
-                    <div id="teacherLastName">@teacherLastName</div>
-                </div>
+            <!-- when the scren size is MOBILE then we want to remove the links and add the Hamburger Menu -->
+            <div class="deskTopLinks">
+                <a href="index.html" class="TXT">Home</a>
+                <a href="dynamicSession.html" class="TXT">Find Sessions</a>
+                <a href="map_2.html" class="TXT">RHS Map</a>
+                <a href="about_students.html" class="TXT">Student Creators</a>
             </div>
-            <div class="section CNTNR">
-                <div class="roomID CNTNR">
-                    <div id="roomNumber" class="TXT">@ROOM_#</div>
-                </div>
-            </div>
-            <div class="section CNTNR">
-                <div class="time CNTNR">
-                    <div id="time_start" class="TXT">@START_TIME</div>
-                </div>
+            <!-- our register button goes here THE MOST IMPORTANT FEATURE -->
+            <!-- container for item Flex Justify-content right -->
+            <div class="right CNTNR">
+                <div class="register TXT ">Welcome</div>
             </div>
         </div>
 
-        <!-- Change Text with this script -->
+
+        <!-- UI HERE -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/papaparse@5.4.0/papaparse.min.js">
+    </script>
         <script>
-            document.getElementById("teacherFirstName").innerHTML = "Hello I am Not the original Text";
-        </script>
 
+        // THIS IS WHERE THE CSV FILE GOES!
+        // const iAmtheFileToBeParsed = "MOCK_DATA1.0.csv";
+
+        Papa.parse("MOCK_DATA1.0.csv",
+            {
+                download: true,
+                header: true,
+                skipEmptyLines: true,
+                complete: function (results) {
+                    console.log("results.length: " + results.data.length);
+                    for (let index = 0; index < results.data.length; index++) {
+                        const element = results.data[index].id;
+                        var sectionContainer = document.createElement('div');
+                        sectionContainer.id = ('container' + index);
+                        // div.innerHTML = element;
+                        sectionContainer.className = 'container';
+
+                        var titleTxt = document.createElement("div");
+                        titleTxt.id = "titleTxtDiv" + index;
+                        titleTxt.className = "title";
+                        titleTxt.innerHTML = ("Session Name: " + results.data[index].sessionName);
+
+                        var roomNumber = document.createElement("div");
+                        roomNumber.id = "sectionTxtDiv" + index;
+                        roomNumber.className = "details";
+                        roomNumber.innerHTML = ("Room Number: " + results.data[index].roomNumber);
+
+                        var date = document.createElement("div");
+                        date.id = "titleTxtDiv" + index;
+                        date.className = "details";
+                        date.innerHTML = ("Date Here");
+
+
+
+                        sectionContainer.appendChild(titleTxt);
+                        sectionContainer.appendChild(roomNumber);
+                        sectionContainer.appendChild(date);
+
+
+                        document.body.appendChild(sectionContainer);
+
+                        console.log("index: " + index + "; results.data[index].id[0]: " + results.data[index].id + "- sectionContainer.id: " + sectionContainer.id + "sectionContainer ID: " + sectionContainer.id);
+
+                    }
+
+                }
+            });
+    </script>
+        <!-- I am the button to return to the top -->
+        <a href="#" class="to-top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+        <script src="toTop.js"></script>
+        <!-- end return top button -->
+
+    <!-- header here. Here The title is the largest TXT Element here and the date goes right above the title as a little note -->
+    <div class="header CNTNR">
+       
+        <!-- the name of the event -->
+        <div class="title TXT">Find your sessions</div>
+         <!-- the date of the event -->
+         <div id="displayDayHtmlTXT" class="displayDay TXT">Day: </div>
+         <div class="details">Search a wide varierty of sessions</div>
+    </div>
+    <!-- header ends here -->        <div class="CNTNR dayButtons">
+            <!-- day 1 Button -->
+            <button id="dayButtonOne" name="dayOneButton" class="button" onclick="displayDayOneContent()">Day 1</button>
+            <!-- day 2 button -->
+            <button id="dayButtonTwo" name="dayOneButton" class="button" onclick="displayDayTwoContent()">Day 2</button>
+
+        </div>
+        
+        <script>
+            displayDayOneContent();
+            function displayDayOneContent() {
+                console.log("displayDayOneContent(): activated");
+                document.getElementById("displayDayHtmlTXT").innerHTML = "Day: 1";
+            }
+            function displayDayTwoContent() {
+                console.log("displayDayTwoContent(): activated");
+                document.getElementById("displayDayHtmlTXT").innerHTML = "Day: 2";
+            }
+        </script>
     </body>
+
 </html>
