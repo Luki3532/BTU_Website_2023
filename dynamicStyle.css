@@ -36,12 +36,14 @@ body{
 
 .container{
     margin: 10%;
+    border: #000000;
+    border-style: solid;
 }
 .container div{
     padding: 2%;
 }
 .dayButtons{
-  background: white;
+  color: #31364c  ;
   /* position: fixed;
   width:50px;
   height:50px; */
@@ -50,6 +52,8 @@ body{
   justify-content: center;
   color:#1f1f1f;
   padding-top: 9%;
+  z-index: -1;
+
 }
 .button{
   font-size: 4vw;
@@ -86,3 +90,6 @@ body{
 .header{
   margin-top: 4%;
 }
+
+
+
