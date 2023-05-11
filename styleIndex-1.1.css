@@ -35,11 +35,9 @@ body {
     justify-content: space-between;
     align-items: center;
     /* FLEX BOX END */
-
+    z-index: 1;
 }
-.navigationBar.sticky{
 
-}
 .section{
     margin-top: 4%;
 }
@@ -169,4 +167,7 @@ justify-content: center;
     color: #fdfdfd;
     font-size:small;
     padding-top: 1%;
+}
+h3{
+    font-weight: bold;
 }
