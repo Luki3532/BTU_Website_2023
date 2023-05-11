@@ -120,7 +120,7 @@
                         }
                         for (let index = 0; index <results.data.length; index++) {
                             const element = ('container' + index);
-                            if (index % 2 == 0) {
+                            if ((index+1) % 2 == 0) {
                                 document.getElementById(element).style.backgroundColor = 'grey';
                             }
                             console.log(element);
