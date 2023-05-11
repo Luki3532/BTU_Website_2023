@@ -118,7 +118,13 @@
                             console.log("index: " + index + "; results.data[index].id[0]: " + results.data[index].id + "- sectionContainer.id: " + sectionContainer.id + "sectionContainer ID: " + sectionContainer.id);
 
                         }
-
+                        for (let index = 0; index <results.data.length; index++) {
+                            const element = ('container' + index);
+                            if (index % 2 == 0) {
+                                document.getElementById(element).style.backgroundColor = 'grey';
+                            }
+                            console.log(element);
+                        }
                     }
                 });
             // Your code here
