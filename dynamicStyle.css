@@ -35,7 +35,7 @@ body{
 }
 
 .container{
-    margin: 10%;
+    margin: 1% 10%;
     border: #000000;
     border-style: solid;
 }
@@ -53,6 +53,7 @@ body{
   color:#1f1f1f;
   padding-top: 9%;
   z-index: -1;
+  margin-bottom:15%;
 
 }
 .button{
