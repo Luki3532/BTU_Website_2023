@@ -74,7 +74,7 @@
       <div class="title TXT">Find your sessions</div>
       <!-- the date of the event -->
       <div id="displayDayHtmlTXT" class="displayDay TXT">Day:</div>
-      <div class="TXT pageDescription">Search a wide varierty of sessions</div>
+      <div class="TXT pageDescription">Search a wide variety of sessions</div>
       <!-- header ends here -->
       <div class="CNTNR dayButtons">
         <!-- day 1 Button -->
@@ -142,6 +142,9 @@
     <!-- UI HERE -->
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.0/papaparse.min.js"></script>
     <script>
+      let dayNum = "NONE";
+      console.log("dayNum" + dayNum)
+
       // THIS IS WHERE THE CSV FILE GOES!
       // const iAmtheFileToBeParsed = "MOCK_DATA1.0.csv";
       document.addEventListener("DOMContentLoaded", function () {
@@ -278,6 +281,8 @@
       // displayDayOneContent();
       displayDayOneContent();
       function displayDayOneContent() {
+        dayNum = "dayOne";
+        console.log("dayNum" + dayNum)
         console.log("displayDayOneContent(): activated");
         document.getElementById("displayDayHtmlTXT").innerHTML = "Day: 1";
         // document.getElementsByClassName("dayOne").style.display = "block";
@@ -287,22 +292,28 @@
           elems[i].style.display = "none";
         }
 
-        var elems = document.getElementsByClassName("dayOne");
-        for (var i = 0; i < elems.length; i += 1) {
-          elems[i].style.display = "block";
+        var elems2 = document.getElementsByClassName("dayOne");
+        for (var i = 0; i < elems2.length; i += 1) {
+          elems2[i].style.display = "block";
         }
       }
       function displayDayTwoContent() {
+        dayNum = "dayTwo";
+        console.log("dayNum" + dayNum)
         console.log("displayDayTwoContent(): activated");
         document.getElementById("displayDayHtmlTXT").innerHTML = "Day: 2";
         var elems = document.getElementsByClassName("dayTwo");
+        // console.log(elems);
         for (var i = 0; i < elems.length; i += 1) {
           elems[i].style.display = "block";
+          // console.log(elems[i].style.display);
         }
 
-        var elems = document.getElementsByClassName("dayOne");
-        for (var i = 0; i < elems.length; i += 1) {
-          elems[i].style.display = "none";
+        var elems2 = document.getElementsByClassName("dayOne");
+        // console.log(elems2);
+        for (var i = 0; i < elems2.length; i += 1) {
+          elems2[i].style.display = "none";
+          // console.log(elems2[i].style.display);
         }
       }
 
@@ -318,7 +329,14 @@
 
       function showSessionOne() {
         for (var i = 0; i < seshOne.length; i += 1) {
+          if (seshOne[i].className.search(dayNum)> 0){
+            // console.log("day 1 session 1");
           seshOne[i].style.display = "block";
+          }
+          else {
+            // console.log("day 2 session 1");
+            seshOne[i].style.display = "none";
+          }
         }
         for (var i = 0; i < seshTwo.length; i += 1) {
           seshTwo[i].style.display = "none";
@@ -336,7 +354,12 @@
           seshOne[i].style.display = "none";
         }
         for (var i = 0; i < seshTwo.length; i += 1) {
+          if (seshTwo[i].className.search(dayNum)> 0){
           seshTwo[i].style.display = "block";
+          }
+          else {
+            seshTwo[i].style.display = "none";
+          }
         }
         for (var i = 0; i < seshThree.length; i += 1) {
           seshThree[i].style.display = "none";
@@ -354,7 +377,12 @@
           seshTwo[i].style.display = "none";
         }
         for (var i = 0; i < seshThree.length; i += 1) {
+          if (seshThree[i].className.search(dayNum)> 0){
           seshThree[i].style.display = "block";
+          }
+          else {
+            seshThree[i].style.display = "none";
+          }        
         }
         for (var i = 0; i < seshFour.length; i += 1) {
           seshFour[i].style.display = "none";
@@ -372,10 +400,15 @@
           seshThree[i].style.display = "none";
         }
         for (var i = 0; i < seshFour.length; i += 1) {
+          if (seshFour[i].className.search(dayNum)> 0){
           seshFour[i].style.display = "block";
+          }
+          else {
+            seshFour[i].style.display = "none";
+          }  
         }
         openDropdownContent();
-        displayDayTwoContent();
+        // displayDayTwoContent();
       }
     </script>
     <!-- I am the button to return to the top -->
