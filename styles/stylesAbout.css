@@ -12,15 +12,15 @@ body{
 img { 
     margin: auto;
     display: block;
-    width: 50%;
+    width: 80%;
 }
 .photo-container img{
-    border-radius: 50%;
+    border-radius: 15%;
     opacity: .925
 }
 
 .idCNTNR{
-    margin-bottom: 10%;
+    margin-bottom: 2%;
 }
 .text{
     padding: 0% 15%;

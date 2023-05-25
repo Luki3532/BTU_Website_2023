@@ -146,7 +146,7 @@ justify-content: center;
 
 .photo-grid-item {
     display: flex;
-    border-style: dotted;
+    border: solid #c5c7d4 1px;
     justify-content: center;
     
 }

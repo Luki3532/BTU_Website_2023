@@ -32,6 +32,12 @@
     display: block; /* Display block instead of inline */
     transition: 0.3s; /* Transition effects on hover (color) */
   }
+
+  .register a {
+    color: #f8cf3f;
+    /* text-decoration: none; */
+  }
+
   
   /* When you mouse over the navigation links, change their color */
   .overlay a:hover, .overlay a:focus {
