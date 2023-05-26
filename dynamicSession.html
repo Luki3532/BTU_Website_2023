@@ -155,7 +155,7 @@
       // THIS IS WHERE THE CSV FILE GOES!
       // const iAmtheFileToBeParsed = "MOCK_DATA1.0.csv";
       document.addEventListener("DOMContentLoaded", function () {
-        Papa.parse("2023  DRAFT_BTSU Schedule - For Website.csv", {
+        Papa.parse("BTSU_Schedule_2023.csv", {
           download: true,
           header: true,
           skipEmptyLines: true,
@@ -185,19 +185,19 @@
               titleTxt.id = "titleTxtDiv" + index;
               titleTxt.className = "title";
               titleTxt.innerHTML =
-                "Session Name: " + results.data[index].Description;
+                "Session Name: " + results.data[index].Title;
 
               var presenter = document.createElement("div");
               presenter.id = "titleTxtDiv" + index;
               presenter.className = "details";
               presenter.innerHTML =
-                "Presenter(s): " + results.data[index].Presenters;
+                "<u>Presenter(s):</u> " + results.data[index].Presenters;
 
               var roomNumber = document.createElement("div");
               roomNumber.id = "sectionTxtDiv" + index;
               roomNumber.className = "details";
               roomNumber.innerHTML =
-                "Room Number: " + results.data[index].RoomNumber;
+                "<u>Room Number:</u> " + results.data[index].Room_Number;
 
               var date = document.createElement("div");
               date.id = "titleTxtDiv" + index;
@@ -206,14 +206,22 @@
                 "Day " +
                 results.data[index].Day +
                 ", Session  " +
-                results.data[index].SessionNumber;
+                results.data[index].Session_Number;
+
+                // Here is the details for the session:
+                var description = document.createElement("div");
+              description.id = "sectionTxtDiv" + index;
+              description.className = "details audienceTXT";
+              description.innerHTML =
+                "<u>Description:</u> " +
+                results.data[index].Description;
 
               var recommendedAudience = document.createElement("div");
               recommendedAudience.id = "sectionTxtDiv" + index;
               recommendedAudience.className = "details audienceTXT";
               recommendedAudience.innerHTML =
-                "Recomended Audience: " +
-                results.data[index].RecommendedAudience;
+                "<u>Recomended Audience:</u> " +
+                results.data[index].Recommended_Audience;
 
               if (results.data[index].Day == "1") {
                 console.log("add Dayone to SectionContainer Class list");
@@ -251,9 +259,12 @@
               }
 
               sectionContainer.appendChild(titleTxt);
+              sectionContainer.appendChild(date);
+
               sectionContainer.appendChild(presenter);
               sectionContainer.appendChild(roomNumber);
-              sectionContainer.appendChild(date);
+              
+              sectionContainer.appendChild(description);
               sectionContainer.appendChild(recommendedAudience);
 
               document.body.appendChild(sectionContainer);
